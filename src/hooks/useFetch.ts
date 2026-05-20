@@ -36,7 +36,8 @@ function useFetch<T>(url: string): FetchState<T> {
             error: null,
           });
         }
-      } catch (err) {
+
+      } catch {
         if (isMounted) {
           setState({
             data: null,
