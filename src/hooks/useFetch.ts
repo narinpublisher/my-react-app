@@ -19,7 +19,7 @@ function useFetch<T>(url: string): FetchState<T> {
   useEffect(() => {
     let isMounted = true;
 
-    const fetch_ = async () => {
+    const fetchData = async () => {
       try {
         setState(prev => ({
           ...prev,
@@ -36,7 +36,7 @@ function useFetch<T>(url: string): FetchState<T> {
             error: null,
           });
         }
-      } catch (err) {
+      } catch {
         if (isMounted) {
           setState({
             data: null,
@@ -47,7 +47,7 @@ function useFetch<T>(url: string): FetchState<T> {
       }
     };
 
-    fetch_();
+    fetchData();
 
     return () => {
       isMounted = false;
